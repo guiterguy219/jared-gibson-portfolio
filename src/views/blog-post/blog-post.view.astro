@@ -1,0 +1,39 @@
+---
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import { ArrowLeftIcon } from "@lucide/astro";
+import { render, type CollectionEntry } from "astro:content";
+import { format } from "date-fns";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<HomeLayout>
+  <div class="flex flex-col gap-4 w-full">
+    <a
+      href="/blog"
+      class="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 w-max"
+    >
+      <ArrowLeftIcon class="w-4 h-4" />
+      All Posts
+    </a>
+    <img
+      src={post.data.image.lg}
+      alt={post.data.title}
+      class="w-full aspect-video max-h-96 object-cover rounded-md"
+    />
+    <dir>
+      <h1 class="text-2xl font-bold">{post.data.title}</h1>
+      <p class="text-sm">{post.data.description}</p>
+    </dir>
+    <p class="text-sm text-muted-foreground">{format(post.data.date, "PP")}</p>
+    <div class="markdown-content mt-8">
+      <hr />
+      <Content />
+    </div>
+  </div>
+</HomeLayout>

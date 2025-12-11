@@ -1,0 +1,18 @@
+---
+import BlogPostView from "@/views/blog-post/blog-post.view.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts
+    .filter((post) => post.data.status === "published")
+    .map((post) => ({
+      params: { id: post.id },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+---
+
+<BlogPostView post={post} />

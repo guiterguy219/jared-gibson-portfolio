@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", ({ matches }) => {
+      // Only update theme if user hasn't manually set a preference
+      if (!localStorage.getItem("theme")) {
+        document.documentElement.classList[matches ? "add" : "remove"]("dark");
+      }
+    });
+
+    return mediaQuery.matches ? "dark" : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+</script>
+
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Jared Gibson – Full Stack Developer</title>
+
+    <!-- Required -->
+    <meta property="og:title" content="Jared Gibson – Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="I'm a full stack developer with a passion for building real business solutions."
+    />
+    <!-- <meta
+      property="og:image"
+      content="https://jaredgibson.com/og-image.png"
+    /> -->
+    <meta property="og:url" content="https://jared.gibson.run" />
+
+    <!-- Optional but recommended -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:site_name"
+      content="Jared Gibson – Full Stack Developer"
+    />
+  </head>
+  <body
+    class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
+  >
+    <slot />
+  </body>
+</html>
