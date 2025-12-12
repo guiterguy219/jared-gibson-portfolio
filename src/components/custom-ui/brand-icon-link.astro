@@ -1,0 +1,21 @@
+---
+interface Props {
+  href: string;
+  alt: string;
+  src:
+    | string
+    | {
+        light: string;
+        dark: string;
+      };
+}
+
+const { href, alt, src } = Astro.props;
+const { light: lightSrc, dark: darkSrc } =
+  typeof src === "object" ? src : { light: src, dark: src };
+---
+
+<a href={href} target="_blank">
+  <img src={lightSrc} alt={alt} class="block dark:hidden object-contain" />
+  <img src={darkSrc} alt={alt} class="dark:block hidden object-contain" />
+</a>

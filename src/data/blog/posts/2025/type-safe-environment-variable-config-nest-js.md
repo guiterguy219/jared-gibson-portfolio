@@ -1,9 +1,9 @@
 ---
 title: "Type-Safe Environment Variable Config with Zod in NestJS"
-description: "The easy solution to guarantee valid and type-safe config"
-date: "2025-12-11T10:00:00.00000-07:00"
+description: "The simple solution for guaranteeing valid and type-safe application configuration"
+date: "2025-12-11T11:10:00.00000-07:00"
 author: "Jared Gibson"
-tags: []
+tags: ["nestjs", "typescript", "zod"]
 image:
   {
     sm: "https://images.unsplash.com/photo-1562369158-71cbfd5a494c?ixid=M3w4MzU4MTJ8MHwxfHNlYXJjaHw1NHx8cGx1Z3N8ZW58MHx8fHwxNzY1NDY5OTMyfDA&ixlib=rb-4.1.0&w=600&h=400&q=80&fm=webp&fit=crop&dpr=1",
@@ -16,7 +16,7 @@ status: "published"
 
 This will be a brief post, because, fortunately, there's not a whole lot to say. Zod and Nest's `ConfigService` do much of the heavy lifting. We just need a little bit of glue to make it all stick together nicely!
 
-I also want to acknowledge that there are many ways to inject configuration values into an environment, but I've found **environment variables** to be the most widely supported and simple to adopt. They have their shortcomings, but, as you'll see here, I think we're able to overcome most of them pretty well.
+I also want to acknowledge that there are many ways to inject configuration values into an application, but I've found **environment variables** to be the most widely supported and simple to adopt. They have their shortcomings, but, as you'll see here, we're able to overcome most of them pretty well.
 
 ## The Plan 📝
 
@@ -32,9 +32,9 @@ Okay, let's dive right in!
 
 ### Config Schema
 
-Earlier I mentioned some of the drawbacks of using environment variables. The main two are their inherint "flat" nature and their lack of types. For example, in previous projects we would use deeply nested YAML config files, so we had to have some process for "de-flattening" the environment variables and converting their string values as needed to numbers, arrays, or even JSON objects. This process was abstracted away and often difficult to understand, which would sometimes lead to obscure and hard to debug errors.
+Earlier I referred to drawbacks of using environment variables. The main two that I encounter are their inherent "flat" nature and their lack of types. For example, on a previous team we would use deeply nested YAML config files, which required some process for "de-flattening" the environment variables and converting their string values as needed to numbers, arrays, or even JSON objects. This process was abstracted away and often difficult to understand, which would sometimes lead to obscure and hard to debug errors.
 
-To address the "flat" issue, I've found recently I prefer simply embracing flat config. You may say, "Oh, you're project isn't that complex", and you may be right. 😉 However, even in the case of 50, 100, or more configuration values, I think there is something gained from the simplicity of mapping environment variables directly to the project's config class or object. It reduces ambiguity and the cognitive overhead of setting up the environment variables.
+To address the "flat" issue, I've recently found I prefer simply embracing flat config. You may say, "Oh, your project isn't that complex", and you may be right 😉. However, even in the case of 50, 100, or more configuration values, I think there is something gained from the simplicity of mapping environment variables directly to the project's config class or object. It reduces ambiguity and the cognitive overhead of setting up the environment variables.
 
 And regarding the typing issue, my answer to that is Zod. Let's take a look:
 
@@ -46,7 +46,7 @@ import { z } from "zod";
 export const configSchema = z.object({
   // --> While the values are flat, it's still nice to keep similar configs grouped together.
   // GENERAL
-  PORT: z.coerce.number().optional().default(3000), // --> Use Zod's coercion convert types.
+  PORT: z.coerce.number().optional().default(3000), // --> Use Zod's coercion to convert types.
   FRONTEND_URL: z.string(),
 
   // DATABASE
@@ -64,7 +64,7 @@ export const configSchema = z.object({
   CORS_ALLOWED_ORIGINS: z
     .string()
     .default("")
-    .transform((val) => val.split(",")), // --> An example of the powerful Zod's transform method
+    .transform((val) => val.split(",")), // --> An example of Zod's powerful transform method
   // converting this comma-separated value into an array.
 
   // Key Value Store
@@ -109,7 +109,7 @@ export class AppModule {}
 
 ### Wrapping the Config Service
 
-We now have our config service in place, which we could begin to use as is. The issue is that there's some overhead to get type safety. For example, if you just import and use the default config service, you won't get type hints or typed return values:
+We now have our config service in place, which we could begin to use as is. The issue is that there's some overhead to getting type safety. For example, if you just import and use the default config service, you won't get type hints or typed return values:
 
 ```typescript
 @Injectable()
@@ -138,7 +138,7 @@ export class ApiConfigService {
   constructor(private readonly config: ConfigService<Config, true>) {} // --> The `true` here means
   // "Yes", our config schema was validated.
 
-  // Wrap the default `get` function, setting `infer` as `true`.
+  // Wrap the default `get` function, setting `infer` to `true`.
   get<T extends keyof Config>(key: T) {
     // The `infer` option is what tells the config service we want typed return values.
     return this.config.get(key, { infer: true });
@@ -162,7 +162,7 @@ export class ApiConfigModule {}
 
 ## Finishing Up
 
-You can now go ahead and started using the new config service:
+You can now go ahead and start using the new config service:
 
 ```typescript
 @Injectable()

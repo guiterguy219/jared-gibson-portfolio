@@ -25,7 +25,10 @@ export default function NavbarComponent({
   links: { href: string; label: string; active: boolean }[];
 } & VariantProps<typeof navbarVariants>) {
   return (
-    <NavigationMenu className={cn(navbarVariants({ variant }))}>
+    <NavigationMenu
+      className={cn(navbarVariants({ variant }))}
+      role="navigation"
+    >
       <NavigationMenuList>
         {links.map((item) => (
           <NavigationMenuItem key={item.href}>
@@ -34,8 +37,8 @@ export default function NavbarComponent({
               aria-current={item.active ? "page" : "false"}
               data-active={item.active}
               className={cn(
-                "rounded-full px-6 py-4 data-[active=true]:shadow-sm data-[active=true]:hover:shadow-sm text-center",
-                "data-[active=true]:focus:bg-accent/80 data-[active=true]:hover:bg-accent data-[active=true]:bg-accent/80 hover:bg-accent/60"
+                "rounded-full px-4 sm:px-6 py-2 sm:py-4 data-[active=true]:shadow-sm data-[active=true]:hover:shadow-sm text-center transition-colors",
+                "data-[active=true]:text-primary-foreground data-[active=true]:focus:bg-primary data-[active=true]:hover:bg-primary/90 data-[active=true]:bg-primary"
               )}
             >
               {item.label}

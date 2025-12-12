@@ -1,0 +1,62 @@
+---
+import ProjectSizeBadge from "@/components/custom-ui/project-size-badge.astro";
+import ProjectStatusBadge from "@/components/custom-ui/project-status-badge.astro";
+import ProjectTechBadge from "@/components/custom-ui/project-tech-badge.astro";
+import { Star } from "@lucide/astro";
+import type { CollectionEntry } from "astro:content";
+import { formatDistanceToNow } from "date-fns";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const thumbnailImage = project.data.images.find((image) => image.primary);
+---
+
+<a class="flex flex-col gap-2 group relative" href={`/projects/${project.id}`}>
+  {
+    project.data.soleDeveloper && (
+      <div class="absolute top-0 right-0 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-bl-md rounded-tr-md [&_svg]:size-3.5 [&_svg]:fill-current flex items-center gap-1">
+        <Star /> Sole Developer
+      </div>
+    )
+  }
+  {
+    thumbnailImage && (
+      <img
+        src={thumbnailImage.sm}
+        alt={thumbnailImage.alt}
+        class="w-full aspect-video object-cover object-top rounded-md shadow-sm group-hover:ring-2 group-hover:ring-primary transition-all"
+      />
+    )
+  }
+  <div>
+    <h2 class="text-lg font-bold">{project.data.title}</h2>
+    <p class="text-xs">{project.data.shortDescription}</p>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex items-center gap-2 flex-wrap">
+    {
+      [
+        ...project.data.techStack.filter((tech) => tech.highlight),
+        { name: "...", highlight: true },
+      ].map((tech) => <ProjectTechBadge tech={tech.name} />)
+    }
+  </div>
+  <div class="flex items-center gap-2">
+    {
+      project.data.lastCommit && (
+        <div class="text-xs text-muted-foreground">
+          Last commit:{" "}
+          {formatDistanceToNow(project.data.lastCommit, {
+            addSuffix: true,
+          })}
+        </div>
+      )
+    }
+    <div class="flex-1"></div>
+    <ProjectSizeBadge size={project.data.size} />
+    <ProjectStatusBadge status={project.data.status} />
+  </div>
+</a>

@@ -26,7 +26,7 @@ I've always been a fan of hobbies that contribute to my overall well-being.
 
 I love to play music, and I consider myself a "campfire guitarist". I also dabble in piano, ukulele, and mandolin. For me, the purpose of playing music is to relax and unwind, and to connect with and bring joy to others.
 
-On the more physical side of things, I love to run, hike and rock climb. I've never been competitive any more than a 5K/10K race here and there, but I love the challenge of pushing myself and, of course, the benefits that come with exercise. Rock climbing especially pushes my mental limits almost as much as it does my physical limits because of its problem-solving nature and the need to push out fear and anxiety.
+On the more physical side of things, I love to run, hike and rock climb. I've never been competitive beyond a 5K/10K race here and there, but I love the challenge of pushing myself and, of course, the benefits that come with exercise. Rock climbing especially pushes my mental limits almost as much as it does my physical limits because of its problem-solving nature and the need to push out fear and anxiety.
 
 ![Cedar City Slot Canyon](https://content.gibsonops.com/jared/cedar-city-slot-canyon-banner.webp)
 

@@ -9,7 +9,7 @@ image:
     sm: "https://images.unsplash.com/photo-1634224143538-ce0221abf732?ixid=M3w4MzU4MTJ8MHwxfHNlYXJjaHwxfHxwYXNzd29yZHxlbnwwfHx8fDE3NjQ5NzgwMzJ8MA&ixlib=rb-4.1.0&w=600&h=400&q=80&fm=webp&fit=crop&dpr=1",
     lg: "https://images.unsplash.com/photo-1634224143538-ce0221abf732?ixid=M3w4MzU4MTJ8MHwxfHNlYXJjaHwxfHxwYXNzd29yZHxlbnwwfHx8fDE3NjQ5NzgwMzJ8MA&ixlib=rb-4.1.0&w=1200&h=800&q=80&fm=webp&fit=crop&dpr=1",
   }
-status: "draft"
+status: "idea"
 ---
 
 ## Introduction

@@ -7,7 +7,7 @@ description: A deep dive into my experience by technical domain
 
 ## What can I help you with? 🙂
 
-I'm happy to dive head first into building any solution you might need, but first, I'd like to present to you my experience by technical domain, giving you a deeper understanding of how I can provide for you the most benefit.
+I'm happy to dive headfirst into building any solution you might need, but first, I'd like to present to you my experience by technical domain, giving you a deeper understanding of how I can provide for you the most benefit.
 
 +++
 
@@ -87,7 +87,7 @@ Security and reliability are top priorities in any backend work I do. That means
 
 - **Typical Framework/Tool(s)**: Redis, ValKey
 
-This one is simple. I love performance and scability, and [Redis](https://redis.io/) has established itself as the de facto standard for key-value stores.
+This one is simple. I love performance and scalability, and [Redis](https://redis.io/) has established itself as the de facto standard for key-value stores.
 
 I've used Redis for years now, and it's a great tool for caching, session management, and real-time updates. I've also used [ValKey](https://valkey.dev/) as an open-source, drop-in replacement for Redis.
 
@@ -99,7 +99,7 @@ I've used Redis for years now, and it's a great tool for caching, session manage
 
 - **Typical Framework/Tool(s)**: Render, AWS
 
-Cloud computing and other cloud-related services are a vital contributor to modern production-grade software. I have extensive experience with [AWS](https://aws.amazon.com/), but have more recently been liking [Render](https://render.com/) for its ease of use and developer-friendly features. While AWS is powerful, it's complexity can cost a lot of development time, which often isn't worth it for smaller, more cost-sensitive businesses. Render makes deployment and monitoring a breeze with similar pricing to AWS.
+Cloud computing and other cloud-related services are a vital contributor to modern production-grade software. I have extensive experience with [AWS](https://aws.amazon.com/), but have more recently been liking [Render](https://render.com/) for its ease of use and developer-friendly features. While AWS is powerful, its complexity can cost a lot of development time, which often isn't worth it for smaller, more cost-sensitive businesses. Render makes deployment and monitoring a breeze with similar pricing to AWS.
 
 Services I've used AWS for: Container orchestration (ECS), Database (RDS), Storage (S3), CDN (CloudFront), DNS (Route 53), Load Balancer (ALB), Key-Value Store (ElastiCache), static site hosting (Amplify), and more.
 
@@ -147,11 +147,11 @@ For CI/CD, I have experience with both [GitHub Actions](https://github.com/featu
 
 The first framework I became experienced with is [Angular](https://angular.io/), but I later began adopting [React](https://react.dev/) because of its popularity and ecosystem. I now have considerably more experience with React, and have used it in production for several projects.
 
-While React has its pain points (i.e. unpredicatble re-renders and messy state management), there's something to be said for its maturity and community support. Other frameworks offer improvements over React ([Svelte](https://svelte.dev/), [Solid](https://www.solidjs.com/), [Preact](https://preactjs.com/), etc.), but I've found that it's hard to commit to these frameworks when delivering a complex production-grade application.
+While React has its pain points (i.e. unpredictable re-renders and messy state management), there's something to be said for its maturity and community support. Other frameworks offer improvements over React ([Svelte](https://svelte.dev/), [Solid](https://www.solidjs.com/), [Preact](https://preactjs.com/), etc.), but I've found that it's hard to commit to these frameworks when delivering a complex production-grade application.
 
 A great compromise between plain React and more up-and-coming tools is [React Router 7](https://reactrouter.com/en/main) (formerly [Remix](https://remix.run/)). It integrates well with the React ecosystem while providing an improved developer experience and other features like server-side data loaders and actions, server-side rendering (SSR) with hydration, nested routes with parallel data loading, and more.
 
-([Remix 3](https://appwrite.io/blog/post/remix-3-whats-changing-and-why-it-matters) 👀 is up and coming and may be a good opportunity to break away from the React ecoystem.)
+([Remix 3](https://appwrite.io/blog/post/remix-3-whats-changing-and-why-it-matters) 👀 is up and coming and may be a good opportunity to break away from the React ecosystem.)
 
 **Side note 📝**: I'm using [Astro](https://astro.build/) for static site generation (including this one!) and it's been awesome. I love how it's simple and performant by default, but can integrate more dynamic components like React, Vue, Svelte, etc. if needed. It makes for a great playground to experiment with new technologies and ideas.
 
@@ -189,7 +189,7 @@ With managed hosting platforms like [Render](https://render.com/) and [AWS](http
 
 - **Typical Framework/Tool(s)**: Keycloak
 
-Nearly every project I've worked on has involved users, and several have required multi-tenancy. [Keycloak](https://www.keycloak.org/) has been a good place for housing users since it's also been my identity provider of choice for several years. I previous company I worked for had 1M+ users in their Keycloak instance, which worked great for them.
+Nearly every project I've worked on has involved users, and several have required multi-tenancy. [Keycloak](https://www.keycloak.org/) has been a good place for housing users since it's also been my identity provider of choice for several years. A previous company I worked for had 1M+ users in their Keycloak instance, which worked great for them.
 
 Admittedly, Keycloak does not have the most feature-rich user management, but the coupling with authentication and authorization and its extensibility have made it a good fit for most projects. In fact, I fixed one major shortcoming by writing a custom plugin (source code: [\[Custom Keycloak Plugins\]](https://github.com/threatzero-solutions/keycloak-plugins)). Keycloak's REST API for querying user data didn't allow complex queries by user attributes, so my plugin adds an endpoint to do just that. I now have two projects using this endpoint to filter users by organizations, sub-organizations, custom IDs, and more. With that added capability, these projects can manage Keycloak users in-app without having to ever touch the Keycloak admin console.
 

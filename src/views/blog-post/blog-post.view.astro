@@ -1,6 +1,6 @@
 ---
 import HomeLayout from "@/layouts/HomeLayout.astro";
-import { ArrowLeftIcon } from "@lucide/astro";
+import { ArrowLeft } from "@lucide/astro";
 import { render, type CollectionEntry } from "astro:content";
 import { format } from "date-fns";
 
@@ -10,6 +10,8 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const COMMENTS_EMAIL = "comments@jared.gibson.run";
 ---
 
 <HomeLayout>
@@ -18,7 +20,7 @@ const { Content } = await render(post);
       href="/blog"
       class="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 w-max"
     >
-      <ArrowLeftIcon class="w-4 h-4" />
+      <ArrowLeft class="size-4" />
       All Posts
     </a>
     <img
@@ -35,5 +37,24 @@ const { Content } = await render(post);
       <hr />
       <Content />
     </div>
+
+    <hr class="mt-12" />
+    <p class="py-8 text-center">
+      Comments? Would've done something different?
+      <br />
+      <span class="text-muted-foreground text-sm"
+        >Please send me an email at <a
+          href={`mailto:${COMMENTS_EMAIL}`}
+          class="text-blue-500 hover:text-blue-600">{COMMENTS_EMAIL}</a
+        >.</span
+      >
+    </p>
+    <a
+      href="/blog"
+      class="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 w-max self-center"
+    >
+      <ArrowLeft class="w-4 h-4" />
+      Back to All Posts
+    </a>
   </div>
 </HomeLayout>

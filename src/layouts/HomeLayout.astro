@@ -1,25 +1,71 @@
 ---
+import BrandIconLink from "@/components/custom-ui/brand-icon-link.astro";
 import NavbarComponent from "@/components/custom-ui/navbar";
 import Layout from "@/layouts/Layout.astro";
+import { Mail } from "@lucide/astro";
 
 const { pathname } = Astro.url;
 const currentPath = pathname.slice(1);
 const currentPathSegments = currentPath.split("/");
 ---
 
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    // Find the navbar rendered by NavbarComponent
+    const navbar = document.querySelector('[role="navigation"].sticky');
+    if (navbar) {
+      // Get the current height (including padding)
+      const navbarRect = navbar.getBoundingClientRect();
+      // Compute the scroll padding top value
+      // Add a little extra gap just in case (e.g., 12px)
+      const scrollPaddingTop = Math.ceil(navbarRect.height + 24);
+      // Set CSS variable on html element for global use
+      document.documentElement.style.setProperty(
+        "--scroll-padding-top",
+        `${scrollPaddingTop}px`
+      );
+      // Set scroll-padding-top directly as well (for browsers that support it)
+      document.documentElement.style.scrollPaddingTop = `${scrollPaddingTop}px`;
+    }
+  });
+</script>
+
 <Layout>
   <div
-    class="max-w-6xl w-full px-4 sm:px-8 pt-8 pb-12 flex flex-col items-center gap-8"
+    class="max-w-6xl w-full px-4 sm:px-8 pt-8 pb-24 flex flex-col items-center gap-8"
   >
-    <div class="flex flex-col sm:flex-row items-center gap-8">
+    <div class="flex flex-col sm:flex-row items-center gap-x-8 gap-y-4">
       <img
         src="https://content.gibsonops.com/jared/portrait_angle_cropped_md.webp"
         alt="Jared Gibson"
-        class="w-48 rounded-full aspect-square object-cover"
+        class="w-36 sm:w-48 rounded-full aspect-square object-cover ring-4 ring-primary"
       />
-      <div class="flex flex-col items-center gap-2">
-        <h1 class="text-3xl font-bold">Jared Gibson</h1>
-        <p class="text-lg">Full Stack Developer</p>
+      <div class="flex flex-col items-center gap-1">
+        <h1 class="text-2xl sm:text-3xl font-bold">jared gibson</h1>
+        <p class="text-base sm:text-lg">full stack developer</p>
+        <div
+          class="flex items-center gap-1 [&_svg]:size-4 [&_img]:size-4 [&_a]:rounded-sm [&_a]:p-1.5 [&_a]:hover:bg-accent/50 [&_a]:text-accent-foreground"
+        >
+          <a href="mailto:jared@gibson.run" target="_blank">
+            <Mail />
+          </a>
+          <BrandIconLink
+            href="https://github.com/guiterguy219"
+            alt="GitHub"
+            src={{
+              light: "/media/brands/github/github-mark.svg",
+              dark: "/media/brands/github/github-mark-white.svg",
+            }}
+          />
+          <BrandIconLink
+            href="https://linkedin.com/in/jaredgibson219"
+            alt="LinkedIn"
+            src={{
+              light: "/media/brands/linkedin/in-icon-black.png",
+              dark: "/media/brands/linkedin/in-icon-white.png",
+            }}
+          />
+        </div>
       </div>
     </div>
     <NavbarComponent
@@ -27,14 +73,14 @@ const currentPathSegments = currentPath.split("/");
       links={[
         { href: "/", label: "Home", active: currentPath === "" },
         {
-          href: "/about-me",
-          label: "About Me",
-          active: currentPath === "about-me",
+          href: "/my-life",
+          label: "My Life",
+          active: currentPath === "my-life",
         },
         {
           href: "/projects",
           label: "Projects",
-          active: currentPath === "projects",
+          active: currentPathSegments[0] === "projects",
         },
         {
           href: "/blog",

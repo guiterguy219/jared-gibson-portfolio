@@ -1,0 +1,117 @@
+---
+import GalleryTile from "@/components/custom-ui/gallery-tile";
+import ProjectSizeBadge from "@/components/custom-ui/project-size-badge.astro";
+import ProjectStatusBadge from "@/components/custom-ui/project-status-badge.astro";
+import ProjectTechBadge from "@/components/custom-ui/project-tech-badge.astro";
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import { ArrowLeft } from "@lucide/astro";
+
+import { render, type CollectionEntry } from "astro:content";
+import { formatDistanceToNow } from "date-fns";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<HomeLayout>
+  <div class="flex flex-col gap-8 w-full">
+    <a
+      href="/projects"
+      class="text-sm text-muted-foreground hover:text-foreground flex items-center gap-1 w-max"
+    >
+      <ArrowLeft class="size-4" />
+      All Projects
+    </a>
+
+    <!-- Project Properties Heading -->
+    <div class="flex flex-col gap-4 w-full">
+      <div class="flex items-center gap-2 border-b border-border pb-4">
+        {
+          project.data.lastCommit && (
+            <div class="text-xs text-muted-foreground">
+              Last commit:{" "}
+              {formatDistanceToNow(project.data.lastCommit, {
+                addSuffix: true,
+              })}
+            </div>
+          )
+        }
+        <div class="flex-1"></div>
+        <ProjectSizeBadge size={project.data.size} />
+        <ProjectStatusBadge status={project.data.status} />
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        {
+          project.data.techStack.map((tech) => (
+            <ProjectTechBadge tech={tech.name} />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Project Description -->
+    <div class="markdown-content">
+      <h1>{project.data.title}</h1>
+      {
+        project.data.urls?.source && (
+          <p>
+            <a href={project.data.urls.source} target="_blank">
+              [Source Code]
+            </a>
+          </p>
+        )
+      }
+      <Content />
+      {
+        project.data.urls?.landing && (
+          <p>
+            Learn more at{" "}
+            <a href={project.data.urls.landing} target="_blank">
+              {project.data.urls.landing.replace(/^https?:\/\//, "")} 🔗
+            </a>
+          </p>
+        )
+      }
+    </div>
+
+    <!-- Try it out! -->
+    {
+      project.data.urls?.iframe && (
+        <div class="flex flex-col gap-4">
+          <h2 class="text-2xl font-bold text-center">Try it out! 🏎️</h2>
+          <div class="w-full h-dvh max-h-[800px] rounded-lg overflow-hidden">
+            <div class="w-full h-8 bg-gray-400/50 flex items-center gap-3 px-3">
+              {Array.from({ length: 3 }).map(() => (
+                <div class="rounded-full size-3.5 bg-gray-800/80 shrink-0" />
+              ))}
+            </div>
+            <iframe src={project.data.urls.iframe} width="100%" height="100%" />
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Gallery -->
+    {
+      project.data.images.length > 0 && (
+        <div class="flex flex-col gap-4">
+          <h2 class="text-2xl font-bold text-center">Gallery ✨</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.data.images.map((image) => (
+              <GalleryTile
+                client:visible
+                images={{ sm: image.sm, lg: image.lg }}
+                altText={image.alt}
+                description={image.description}
+              />
+            ))}
+          </div>
+        </div>
+      )
+    }
+  </div>
+</HomeLayout>
