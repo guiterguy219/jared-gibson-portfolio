@@ -9,26 +9,24 @@ const currentPath = pathname.slice(1);
 const currentPathSegments = currentPath.split("/");
 ---
 
-<script is:inline>
-  window.addEventListener("DOMContentLoaded", () => {
-    // Find the navbar rendered by NavbarComponent
-    const navbar = document.querySelector('[role="navigation"].sticky');
-    if (navbar) {
-      // Get the current height (including padding)
-      const navbarRect = navbar.getBoundingClientRect();
-      // Compute the scroll padding top value
-      // Add a little extra gap just in case (e.g., 12px)
-      const scrollPaddingTop = Math.ceil(navbarRect.height + 24);
-      // Set CSS variable on html element for global use
-      document.documentElement.style.setProperty(
-        "--scroll-padding-top",
-        `${scrollPaddingTop}px`
-      );
-      // Set scroll-padding-top directly as well (for browsers that support it)
-      document.documentElement.style.scrollPaddingTop = `${scrollPaddingTop}px`;
+<!-- This helps with scrolling to make sure scrolled-to content shows below the navbar.
+ While this is technically a little fragile (if the navbar height changes), it's simple and CSS only,
+ which has it's own benefits. -->
+<style is:global>
+  :root {
+    /* Mobile */
+    --navbar-height: 44px;
+    --scroll-padding-top: calc(var(--navbar-height) + 24px);
+    scroll-padding-top: var(--scroll-padding-top);
+  }
+
+  @media (width >= 40rem) {
+    :root {
+      /* Desktop */
+      --navbar-height: 60px;
     }
-  });
-</script>
+  }
+</style>
 
 <Layout>
   <div
