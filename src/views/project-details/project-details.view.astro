@@ -3,11 +3,11 @@ import GalleryTile from "@/components/custom-ui/gallery-tile";
 import ProjectSizeBadge from "@/components/custom-ui/project-size-badge.astro";
 import ProjectStatusBadge from "@/components/custom-ui/project-status-badge.astro";
 import ProjectTechBadge from "@/components/custom-ui/project-tech-badge.astro";
+import TimeSince from "@/components/custom-ui/time-since";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { ArrowLeft } from "@lucide/astro";
 
 import { render, type CollectionEntry } from "astro:content";
-import { formatDistanceToNow } from "date-fns";
 
 interface Props {
   project: CollectionEntry<"projects">;
@@ -34,9 +34,7 @@ const { Content } = await render(project);
           project.data.lastCommit && (
             <div class="text-xs text-muted-foreground">
               Last commit:{" "}
-              {formatDistanceToNow(project.data.lastCommit, {
-                addSuffix: true,
-              })}
+              <TimeSince client:visible date={project.data.lastCommit} />
             </div>
           )
         }

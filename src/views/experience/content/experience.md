@@ -13,7 +13,7 @@ I'm happy to dive headfirst into building any solution you might need, but first
 
 ### Experience by Technical Domain
 
-I can _tell you_ I'm a full stack developer, but here I can _show you_ what that really means. Use the **\[ Details 🔗 \]** button by each domain to dive deeper and learn more about relevant projects, my opinions, and other thoughts.
+I can _tell you_ I'm a full stack developer, but here I can _show you_ what that really means. Use the **\[ Details 🔗 \]** button by each domain to dive deeper and learn more about relevant [projects](/projects), my opinions, and other thoughts.
 
 | Domain                          | Typical Framework/Tool(s)      |                                 |
 | ------------------------------- | ------------------------------ | ------------------------------- |
@@ -36,6 +36,7 @@ I can _tell you_ I'm a full stack developer, but here I can _show you_ what that
 <h4 id="domain-ai">🤖 AI</h4>
 
 - **Typical Framework/Tool(s)**: Claude & Cursor
+- **Projects:** [Santa's Secrets](/projects/santas-secrets)
 
 I started integrating AI tools into my development workflow ever since I first heard about GitHub Copilot in 2022. I fell in love with the smart code completion and used it constantly to boost productivity.
 
@@ -52,6 +53,7 @@ That being said, I found it valuable to experiment with letting AI do the heavy 
 <h4 id="domain-auth">🔐 Authentication/Authorization</h4>
 
 - **Typical Framework/Tool(s)**: Keycloak (SAML & OIDC)
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 Managing authentication and user access is an essential component of most applications I build. Security is always a top priority, and I make sure the latest secure practices are baked into every layer of my projects, authentication and authorization being at the forefront.
 
@@ -70,6 +72,7 @@ Most popular providers such as [Auth0](https://auth0.com/), [Okta](https://www.o
 <h4 id="domain-backend">🚛 Backend</h4>
 
 - **Typical Framework/Tool(s)**: NestJS/Express.js
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 My backend experience covers the full spectrum: from designing RESTful APIs to orchestrating complex business logic, background jobs, and real-time systems. I predominantly work with [Node.js](https://nodejs.org/) (favoring [NestJS](https://nestjs.com/), built on [Express.js](https://expressjs.com/), for its powerful architecture and productivity). I structure code for modularity, scalability, and maintainability—using dependency injection, layered services, middleware, guards, and validation best practices.
 
@@ -86,6 +89,7 @@ Security and reliability are top priorities in any backend work I do. That means
 <h4 id="domain-cache">🔑 Cache/Key-Value Store</h4>
 
 - **Typical Framework/Tool(s)**: Redis, ValKey
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 This one is simple. I love performance and scalability, and [Redis](https://redis.io/) has established itself as the de facto standard for key-value stores.
 
@@ -98,6 +102,7 @@ I've used Redis for years now, and it's a great tool for caching, session manage
 <h4 id="domain-cloud">☁️ Cloud</h4>
 
 - **Typical Framework/Tool(s)**: Render, AWS
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 Cloud computing and other cloud-related services are a vital contributor to modern production-grade software. I have extensive experience with [AWS](https://aws.amazon.com/), but have more recently been liking [Render](https://render.com/) for its ease of use and developer-friendly features. While AWS is powerful, its complexity can cost a lot of development time, which often isn't worth it for smaller, more cost-sensitive businesses. Render makes deployment and monitoring a breeze with similar pricing to AWS.
 
@@ -112,6 +117,7 @@ Services I've used Render for: Container orchestration, database hosting, key-va
 <h4 id="domain-database">💾 Database</h4>
 
 - **Typical Framework/Tool(s)**: Postgres & Prisma
+- **Projects:** [Safety Shield](/projects/fc-safety-shield)
 
 A database is the backbone of most modern applications. Thoughtful schema design, indexing, and query optimization are crucial for performance and scalability. I've used [Postgres](https://www.postgresql.org/) for years now as it's the most popular relational database and has a strong community and tooling ecosystem.
 
@@ -144,6 +150,7 @@ For CI/CD, I have experience with both [GitHub Actions](https://github.com/featu
 <h4 id="domain-frontend">✨ Frontend</h4>
 
 - **Typical Framework/Tool(s)**: React/React Router 7/Remix
+- **Projects:** [Safety Shield](/projects/fc-safety-shield)
 
 The first framework I became experienced with is [Angular](https://angular.io/), but I later began adopting [React](https://react.dev/) because of its popularity and ecosystem. I now have considerably more experience with React, and have used it in production for several projects.
 
@@ -166,6 +173,7 @@ I've used [Tailwind CSS](https://tailwindcss.com/) for styling for years now, an
 <h4 id="domain-messaging">✉️ Messaging/Pub-Sub</h4>
 
 - **Typical Framework/Tool(s)**: Redis, Kafka
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 Just like I love performance and scalability, I love snappy interfaces and real-time updates. [Redis](https://redis.io/) and [Kafka](https://kafka.apache.org/) are great tools for this, and I've used them both extensively in production for several projects.
 
@@ -188,6 +196,7 @@ With managed hosting platforms like [Render](https://render.com/) and [AWS](http
 <h4 id="domain-user">👥 User Management</h4>
 
 - **Typical Framework/Tool(s)**: Keycloak
+- **Projects:** [Safety Shield](/projects/fc-safety-shield), [ThreatZero Platform](/projects/threatzero)
 
 Nearly every project I've worked on has involved users, and several have required multi-tenancy. [Keycloak](https://www.keycloak.org/) has been a good place for housing users since it's also been my identity provider of choice for several years. A previous company I worked for had 1M+ users in their Keycloak instance, which worked great for them.
 
