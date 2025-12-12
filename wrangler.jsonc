@@ -1,6 +1,6 @@
 {
 	"main": "dist/_worker.js/index.js",
-	"name": "jared-gibson",
+	"name": "jared-gibson-portfolio",
   "compatibility_date": "2025-12-11",
   "compatibility_flags": [
     "nodejs_compat",
