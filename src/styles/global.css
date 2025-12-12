@@ -146,7 +146,7 @@
   @apply my-2;
 }
 .markdown-content > table {
-  @apply w-full border-collapse border-spacing-0 border-gray-300 rounded-md overflow-hidden my-4;
+  @apply w-full border-collapse border-spacing-0 border-gray-300 rounded-md my-4 block overflow-auto;
 }
 .markdown-content > table > thead > tr > th {
   @apply p-2 text-left font-bold bg-secondary border-b border-border;
