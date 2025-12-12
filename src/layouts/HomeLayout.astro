@@ -9,9 +9,6 @@ const currentPath = pathname.slice(1);
 const currentPathSegments = currentPath.split("/");
 ---
 
-<!-- This helps with scrolling to make sure scrolled-to content shows below the navbar.
- While this is technically a little fragile (if the navbar height changes), it's simple and CSS only,
- which has it's own benefits. -->
 <style is:global>
   :root {
     /* Mobile */
@@ -73,7 +70,7 @@ const currentPathSegments = currentPath.split("/");
         {
           href: "/my-life",
           label: "My Life",
-          active: currentPath === "my-life",
+          active: currentPathSegments[0] === "my-life",
         },
         {
           href: "/projects",

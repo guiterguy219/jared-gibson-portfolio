@@ -2,26 +2,6 @@
 import "../styles/global.css";
 ---
 
-<script is:inline>
-  const getThemePreference = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    mediaQuery.addEventListener("change", ({ matches }) => {
-      // Only update theme if user hasn't manually set a preference
-      if (!localStorage.getItem("theme")) {
-        document.documentElement.classList[matches ? "add" : "remove"]("dark");
-      }
-    });
-
-    return mediaQuery.matches ? "dark" : "light";
-  };
-  const isDark = getThemePreference() === "dark";
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-</script>
-
 <html lang="en" style="scroll-behavior: smooth;">
   <head>
     <meta charset="UTF-8" />
@@ -48,6 +28,31 @@ import "../styles/global.css";
       property="og:site_name"
       content="Jared Gibson – Full Stack Developer"
     />
+
+    <script is:inline>
+      const getThemePreference = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        mediaQuery.addEventListener("change", ({ matches }) => {
+          // Only update theme if user hasn't manually set a preference
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.classList[matches ? "add" : "remove"](
+              "dark"
+            );
+          }
+        });
+
+        return mediaQuery.matches ? "dark" : "light";
+      };
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+    </script>
   </head>
   <body
     class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
