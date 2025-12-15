@@ -57,7 +57,12 @@ const { Content } = await render(project);
       {
         project.data.urls?.source && (
           <p>
-            <a href={project.data.urls.source} target="_blank">
+            <a
+              href={project.data.urls.source}
+              target="_blank"
+              data-s-event="click-source-code-button"
+              data-s-event-props={`url=${project.data.urls.source}`}
+            >
               [Source Code]
             </a>
           </p>
@@ -68,7 +73,12 @@ const { Content } = await render(project);
         project.data.urls?.landing && (
           <p>
             Learn more at{" "}
-            <a href={project.data.urls.landing} target="_blank">
+            <a
+              href={project.data.urls.landing}
+              target="_blank"
+              data-s-event="click-learn-more-button"
+              data-s-event-props={`url=${project.data.urls.landing}`}
+            >
               {project.data.urls.landing.replace(/^https?:\/\//, "")} 🔗
             </a>
           </p>
@@ -105,6 +115,8 @@ const { Content } = await render(project);
                 images={{ sm: image.sm, lg: image.lg }}
                 altText={image.alt}
                 description={image.description}
+                data-s-event="view-project-gallery-image"
+                data-s-event-props={`project-id=${project.id};image-alt=${image.alt}`}
               />
             ))}
           </div>

@@ -21,6 +21,7 @@ export default function GalleryTile({
   description,
   theme = "light",
   className,
+  ...props
 }: {
   images: {
     sm: ImageSource;
@@ -30,7 +31,7 @@ export default function GalleryTile({
   description?: string;
   theme?: "light" | "dark";
   className?: string;
-}) {
+} & React.ComponentProps<typeof DialogTrigger>) {
   const smImageSource =
     typeof images.sm === "string" ? images.sm : images.sm[theme];
   const lgImageSource =
@@ -38,7 +39,7 @@ export default function GalleryTile({
 
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger {...props}>
         <div
           className={cn(
             "relative aspect-video rounded-md bg-cover bg-center",

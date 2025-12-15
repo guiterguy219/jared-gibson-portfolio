@@ -22,6 +22,8 @@ const blogPosts = await getCollection("blog").then((posts) =>
           href={`/blog/${post.id}`}
           data-disabled={post.data.status === "draft"}
           class={cn("group relative data-[disabled=true]:pointer-events-none")}
+          data-s-event="view-blog-post"
+          data-s-event-props={`blog-post-title=${post.data.title}`}
         >
           <div class="absolute top-0 left-0 right-0 bottom-2 bg-transparent backdrop-blur-xs -m-1 rounded-md group-data-[disabled=true]:flex hidden items-center justify-center">
             <span class="rounded-full bg-secondary/80 text-secondary-foreground px-4 py-2 backdrop-blur-2xl text-base">

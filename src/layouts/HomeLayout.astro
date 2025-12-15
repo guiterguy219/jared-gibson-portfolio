@@ -41,7 +41,12 @@ const currentPathSegments = currentPath.split("/");
         <div
           class="flex items-center gap-1 [&_svg]:size-4 [&_img]:size-4 [&_a]:rounded-sm [&_a]:p-1.5 [&_a]:hover:bg-accent/50 [&_a]:text-accent-foreground"
         >
-          <a href="mailto:jared@gibson.run" target="_blank">
+          <a
+            href="mailto:jared@gibson.run"
+            target="_blank"
+            data-s-event="click-contact-button"
+            data-s-event-props="type=email"
+          >
             <Mail />
           </a>
           <BrandIconLink
@@ -51,6 +56,8 @@ const currentPathSegments = currentPath.split("/");
               light: "/media/brands/github/github-mark.svg",
               dark: "/media/brands/github/github-mark-white.svg",
             }}
+            data-s-event="click-contact-button"
+            data-s-event-props="type=github"
           />
           <BrandIconLink
             href="https://linkedin.com/in/jaredgibson219"
@@ -59,6 +66,8 @@ const currentPathSegments = currentPath.split("/");
               light: "/media/brands/linkedin/in-icon-black.png",
               dark: "/media/brands/linkedin/in-icon-white.png",
             }}
+            data-s-event="click-contact-button"
+            data-s-event-props="type=linkedin"
           />
         </div>
       </div>

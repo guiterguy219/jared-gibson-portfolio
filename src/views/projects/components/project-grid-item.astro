@@ -14,7 +14,12 @@ const { project } = Astro.props;
 const thumbnailImage = project.data.images.find((image) => image.primary);
 ---
 
-<a class="flex flex-col gap-2 group relative" href={`/projects/${project.id}`}>
+<a
+  class="flex flex-col gap-2 group relative"
+  href={`/projects/${project.id}`}
+  data-s-event="view-project"
+  data-s-event-props={`project-title=${project.data.title}`}
+>
   {
     project.data.soleDeveloper && (
       <div class="absolute top-0 right-0 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-bl-md rounded-tr-md [&_svg]:size-3.5 [&_svg]:fill-current flex items-center gap-1">

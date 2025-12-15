@@ -52,6 +52,11 @@ import "../styles/global.css";
       };
       const isDark = getThemePreference() === "dark";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+      // Track page view properties.
+      window.stonks.view({
+        theme: isDark ? "dark" : "light",
+      });
     </script>
 
     <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
