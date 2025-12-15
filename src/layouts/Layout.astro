@@ -29,6 +29,11 @@ import "../styles/global.css";
       content="Jared Gibson – Full Stack Developer"
     />
 
+    <!-- Stonks (One Dollar Stats) -->
+    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
+    ></script>
+
+    <!-- Theme preference -->
     <script is:inline>
       const getThemePreference = () => {
         if (
@@ -58,9 +63,6 @@ import "../styles/global.css";
         theme: isDark ? "dark" : "light",
       });
     </script>
-
-    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
-    ></script>
   </head>
   <body
     class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
