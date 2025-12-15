@@ -29,10 +29,6 @@ import "../styles/global.css";
       content="Jared Gibson – Full Stack Developer"
     />
 
-    <!-- Stonks (One Dollar Stats) -->
-    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
-    ></script>
-
     <!-- Theme preference -->
     <script is:inline>
       const getThemePreference = () => {
@@ -59,10 +55,12 @@ import "../styles/global.css";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
       // Track page view properties.
-      window.stonks.view({
-        theme: isDark ? "dark" : "light",
-      });
+      document.body.dataset.sViewProps = `${document.body.dataset.sViewProps ? ";" : ""}theme=${isDark ? "dark" : "light"}`;
     </script>
+
+    <!-- Stonks (One Dollar Stats) -->
+    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
+    ></script>
   </head>
   <body
     class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
