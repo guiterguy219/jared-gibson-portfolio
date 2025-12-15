@@ -53,14 +53,21 @@ import "../styles/global.css";
       };
       const isDark = getThemePreference() === "dark";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-      // Track page view properties.
-      document.body.dataset.sViewProps = `${document.body.dataset.sViewProps ? ";" : ""}theme=${isDark ? "dark" : "light"}`;
     </script>
 
     <!-- Stonks (One Dollar Stats) -->
-    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
-    ></script>
+    <script
+      is:inline
+      defer
+      src="https://assets.onedollarstats.com/stonks.js"
+      data-debug="jared.gibson.run"></script>
+    <script is:inline>
+      window.addEventListener("load", () => {
+        window.stonks.view({
+          theme: isDark ? "dark" : "light",
+        });
+      });
+    </script>
   </head>
   <body
     class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
