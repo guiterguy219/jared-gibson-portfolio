@@ -53,6 +53,9 @@ import "../styles/global.css";
       const isDark = getThemePreference() === "dark";
       document.documentElement.classList[isDark ? "add" : "remove"]("dark");
     </script>
+
+    <script is:inline defer src="https://assets.onedollarstats.com/stonks.js"
+    ></script>
   </head>
   <body
     class="h-full w-full flex flex-col items-center bg-background text-foreground font-mono"
