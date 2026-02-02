@@ -40,11 +40,13 @@ I can _tell you_ I'm a full stack developer, but here I can _show you_ what that
 
 I started integrating AI tools into my development workflow ever since I first heard about GitHub Copilot in 2022. I fell in love with the smart code completion and used it constantly to boost productivity.
 
-That's when things were simple. Now, the market is flooded with AI tools that promise massive productivity gains. Like everyone else, I'm still experimenting with which tools to use and how to best leverage them, but as of right now I have adopted Claude and Cursor as my foundational tools for AI-assisted development.
+Now, the power of modern AI tools is breathtaking. I've found that with careful guidance and smart tool use, it can bring a project or feature from 0 to 50-80% in a matter of minutes. It's something of an art form as I learn to guide and refine the AI's output to get the best results. It's a whole paradigm shift in how I develop software, which is still something I'm learning to navigate.
 
-In all that's changing with the advancement of AI tooling, I maintain a strong belief in the importance of **using AI responsibly**. While it can certainly boost productivity and support ingenuity, it can also stifle creativity and lead to poor software if not used correctly. I strive to keep my brain in the driver's seat and use AI tools as just that – tools.
+Ultimately, the architectural decisions and accountability for reliability and security are still my responsibility, which I take very seriously.
 
-That being said, I found it valuable to experiment with letting AI do the heavy lifting in certain low-stakes environments, such as this gift exchange app I built completely with Claude Code (model: Opus 4.5) without touching the codebase: [🎅 Santa's Secrets](https://santas-secrets.onrender.com) | [\[Source Code\]](https://github.com/guiterguy219/santas-secrets)
+As of 02/02/2026, I have some new projects in the works that use Claude Code heavily while still having reliability and security as a top priority. I'll update my [projects page](/projects) with more details soon.
+
+Check out this gift exchange app, one of my low-stakes, 100% vibe coded projects: [🎅 Santa's Secrets](https://santas-secrets.onrender.com) | [\[Source Code\]](https://github.com/guiterguy219/santas-secrets)
 
 [Back to top ⬆️](#experience-by-technical-domain)
 
